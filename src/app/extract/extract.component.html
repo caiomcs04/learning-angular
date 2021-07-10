@@ -1,9 +1,33 @@
-<!--*ngFor funciona basicamente como um map ou um foreach. ele faz um loop e
-imprime na tela seu corpo quantas vezes for necessário até finalizar o loop-->
-<div *ngFor="let transfer of transferProps">
-  <p>Data: {{transfer.date}}</p>
-  <p>Valor: {{transfer.value}}</p>
-  <p>Destino: {{transfer.destiny}}</p>
-</div>
+<table class="table-extract">
+  <thead class="table-extract__tableHead">
+    <th class="table-extract__tableHead__tableHeadBody">Data</th>
+    <th class="table-extract__tableHead__tableHeadBody">Valor</th>
+    <th class="table-extract__tableHead__tableHeadBody">Destino</th>
+  </thead>
 
+
+  <!--Com o *ngIf podemos implementar condição para exibição de tags de nosso template
+  o else chamando o nome da tag de ng-template para substituir a tag original
+  caso seja preciso-->
+  <tbody *ngIf="transferProps.length > 0; else emptyTransfer">
+
+    <!--*ngFor funciona basicamente como um map ou um foreach. ele faz um loop e
+    imprime na tela seu corpo quantas vezes for necessário até finalizar o loop-->
+    <tr class="table-extract__line" *ngFor="let transfer of transferProps">
+
+      <!--Por padrão os default de moedas e datas vem em formato americano
+      sendo necessário importar no app.modules.ts providers para efetuar
+      a localização desses campos-->
+      <td class="table-extract__body">Data: {{transfer.date | date: 'short'}}</td>
+      <td class="table-extract__body">Valor: {{transfer.value | currency}}</td>
+      <td class="table-extract__body">Destino: {{transfer.destiny}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<!--é dado o nome desta tag através de #
+para que o else de ngIf à chame quando necessário-->
+<ng-template #emptyTransfer>
+  <h2>Nenhuma operação cadastrada.</h2>
+</ng-template>
 
