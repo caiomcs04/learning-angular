@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'learning-angular';
+
+  transferProps: any[] = [];
+
+  transfer(event : any){
+
+    const transfer = {...event, date: new Date}
+    this.transferProps.push(transfer);
+    console.log(transfer)
+  }
 }

@@ -1,0 +1,9 @@
+<!--*ngFor funciona basicamente como um map ou um foreach. ele faz um loop e
+imprime na tela seu corpo quantas vezes for necessário até finalizar o loop-->
+<div *ngFor="let transfer of transferProps">
+  <p>Data: {{transfer.date}}</p>
+  <p>Valor: {{transfer.value}}</p>
+  <p>Destino: {{transfer.destiny}}</p>
+</div>
+
+
