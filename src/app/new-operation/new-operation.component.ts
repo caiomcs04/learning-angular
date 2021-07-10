@@ -13,5 +13,11 @@ import { Component } from "@angular/core";
     styleUrls: ["./new-operation.component.scss"]
 })
 export class NewOperationComponent {
-    title = 'learning-angular';
+
+    value!: number;
+    destiny!: number;
+
+    transfer(){
+      console.log(`Valor: ${this.value}  e Destinho:  ${this.destiny}`)
+    }
   }
