@@ -1,3 +1,4 @@
+import { TransferService } from './service/transfer.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,12 +9,11 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'learning-angular';
 
-  transferProps: any[] = [];
+  constructor(private service: TransferService){
+
+  }
 
   transfer(event : any){
-
-    const transfer = {...event, date: new Date}
-    this.transferProps.push(transfer);
-    console.log(transfer)
+    this.service.addTransfer(event)
   }
 }

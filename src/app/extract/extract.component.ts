@@ -1,3 +1,4 @@
+import { TransferService } from './../service/transfer.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ExtractComponent implements OnInit {
 
-  @Input() transferProps!: any[];
+  transferProps!: any[];
 
-  constructor() { }
+  constructor(private service: TransferService) {
+
+   }
 
   ngOnInit(): void {
+    this.transferProps = this.service.transfers
   }
 
 }
