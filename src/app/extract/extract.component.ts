@@ -1,3 +1,4 @@
+import { Transfer } from './../service/models/transfer.model';
 import { TransferService } from './../service/transfer.service';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -15,7 +16,10 @@ export class ExtractComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.transferProps = this.service.transfers
+    this.service.getAll().subscribe((transfer: Transfer[]) =>{
+      console.table(transfer)
+      this.transferProps = transfer
+    })
   }
 
 }

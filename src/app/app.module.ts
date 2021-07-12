@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NewOperationComponent } from './new-operation/new-operation.component';
 import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ registerLocaleData(localePt, 'pt')
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [
     /*Aqui em providers será declarada as localizações tanto de data
